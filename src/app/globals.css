@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    height: 100vh; /* 100% ของความสูงของหน้าจอ */
+    overflow-y: scroll; /* ใช้การเลื่อนเมื่อเนื้อหามีมากเกินไป */
+  }
