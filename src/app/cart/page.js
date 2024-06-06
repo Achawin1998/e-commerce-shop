@@ -20,25 +20,25 @@ function Cart() {
  
     const onCheckOut = async () => {
         if (cartCount > 0) {
-            try {
-                setIsRedirecting(true);
-                const response = await fetch('http://localhost:3000/cart/api/checkout-sessions', { 
-                    method: "POST",
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(cartDetails) // ส่งข้อมูล
-                });
-                const { id } = await response.json(); // ดึงค่า id ออกมา
-                const result = await redirectToCheckout(id); // ถ้าสำเร็จก็จะ redirect ไปที่หน้า checkout 
-                if (result.error) {
-                    console.log('Error in result', result);
-                }
-            } catch (error) {
-                console.log("Error to redirect", error);
-            } finally {
-                setIsRedirecting(false);
+          try {
+            setIsRedirecting(true);
+            const response = await fetch('/cart/api/checkout-sessions', { 
+              method: "POST",
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(cartDetails)
+            });
+            const { id } = await response.json();
+            const result = await redirectToCheckout(id);
+            if (result.error) {
+              console.log('Error in result', result);
             }
+          } catch (error) {
+            console.log("Error to redirect", error);
+          } finally {
+            setIsRedirecting(false);
+          }
         }
-    }
+      }
   
 
   return (
