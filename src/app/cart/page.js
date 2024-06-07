@@ -7,7 +7,7 @@ import CartProduct from '../components/CartProduct'
 function Cart() { 
 
     const { cartCount , cartDetails ,formattedTotalPrice ,clearCart , redirectToCheckout } = useShoppingCart();
-    // console.log(cartDetails);
+
     // 1. cartCount แสดงจำนวนสินค้า
     // 2. cartDetails แสดงข้อมูล รายการสินค้าในตะกร้าที่ผู้ใช้เลือกซื้อ
     // 3. clearCart ล้างสินค้าทุกตัวที่บันทึกไว้
